@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  NetworkingManager.swift
 //  WeatherLloydsTest
 //
 //  Created by Divide by Zero on 04/06/2017.
@@ -8,12 +8,23 @@
 
 import Foundation
 
-class NetworkingManager {
+public protocol NetworkingManagerProtocol {
     
-    // TODO: Inject from outisde the following params
-    let session = URLSession.shared
+    var session: URLSession { get }
     
-    public func requestJSON(url: URL, completion: ((NetworkResponse<Any>) -> Void)? = nil) {
+    init(session: URLSession)
+    
+    func requestJSON(url: URL, completion: ((NetworkResponse<Any>) -> Void)?)
+}
+
+class NetworkingManager: NetworkingManagerProtocol {
+    let session: URLSession
+
+    required init(session: URLSession) {
+        self.session = session
+    }
+    
+    func requestJSON(url: URL, completion: ((NetworkResponse<Any>) -> Void)? = nil) {
 
         self.request(url: url) { (response) in
             switch response {

@@ -8,13 +8,23 @@
 
 import Foundation
 
-class ForecastInteractor {
+public protocol ForecastInteractorProtocol {
+ 
+    init(weatherService: WeatherServiceProtocol)
     
-    let weatherService = WeatherService()
+    func fetchForecastModel(completion: ((CityForecast) -> Void)?)
+}
+
+class ForecastInteractor: ForecastInteractorProtocol  {
     
     let cityId = "2648110" // London
+    let weatherService: WeatherServiceProtocol
     
-    public func fetchForecastModel(completion: ((CityForecast) -> Void)? = nil) {
+    required init(weatherService: WeatherServiceProtocol) {
+        self.weatherService = weatherService
+    }
+    
+    func fetchForecastModel(completion: ((CityForecast) -> Void)? = nil) {
         
         self.weatherService.fetchCityForecast(forCityId: cityId) { (cityForecast) in
             

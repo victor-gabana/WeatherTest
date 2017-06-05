@@ -1,5 +1,5 @@
 //
-//  modelParser.swift
+//  ForecastModelParser.swift
 //  WeatherLloydsTest
 //
 //  Created by Divide by Zero on 05/06/2017.
@@ -8,9 +8,13 @@
 
 import Foundation
 
-class ModelParser {
+public protocol ForecastModelParserProtocol {
+    func parseCityForecast(json: Dictionary<String, Any>) -> CityForecast
+}
+
+class ForecastModelParser: ForecastModelParserProtocol {
     
-    public func parseCityForecast(json: Dictionary<String, Any>) -> CityForecast {
+    func parseCityForecast(json: Dictionary<String, Any>) -> CityForecast {
         
         let cityDict = json["city"] as! Dictionary<String, Any>
         let cityName = cityDict["name"] as! String

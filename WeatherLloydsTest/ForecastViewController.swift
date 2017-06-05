@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ForecastViewController.swift
 //  WeatherLloydsTest
 //
 //  Created by Divide by Zero on 04/06/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ForecastViewController: UIViewController {
 
     @IBOutlet weak var cityAndCountryLabel: UILabel!
     
@@ -32,14 +32,14 @@ class ViewController: UIViewController {
   
     @IBOutlet weak var fourthWeekDayContainerView: UIView!
     
+    public var presenter: ForecastPresenterProtocol?
     
     var firstWeekDayView: DayForecastView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let forecastPresenter = ForecastPresenter()
-        forecastPresenter.fetchForecastViewModel { (cityForecastViewModel, dayForecastViewModels) in
+        self.presenter?.fetchForecastViewModel { (cityForecastViewModel, dayForecastViewModels) in
             self.populateCityView(withViewModel: cityForecastViewModel)
             
             let nowForecast = dayForecastViewModels.first

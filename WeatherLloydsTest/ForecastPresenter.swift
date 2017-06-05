@@ -9,11 +9,21 @@
 import Foundation
 import UIKit
 
-class ForecastPresenter {
+public protocol ForecastPresenterProtocol {
+    init(interactor: ForecastInteractorProtocol)
+    func fetchForecastViewModel(completion: ((CityForecastViewModel, [DayForecastViewModel]) -> Void)?)
+}
+
+
+class ForecastPresenter: ForecastPresenterProtocol {
     
-    let interactor = ForecastInteractor()
+    let interactor: ForecastInteractorProtocol
     
-    public func fetchForecastViewModel(completion: ((CityForecastViewModel, [DayForecastViewModel]) -> Void)? = nil) {
+    required init(interactor: ForecastInteractorProtocol) {
+        self.interactor = interactor
+    }
+    
+    func fetchForecastViewModel(completion: ((CityForecastViewModel, [DayForecastViewModel]) -> Void)? = nil) {
         
         self.interactor.fetchForecastModel { (cityForecast) in
             let cityForecastViewModel = self.cityForecastViewModel(cityForecast: cityForecast)
@@ -26,6 +36,8 @@ class ForecastPresenter {
             completion?(cityForecastViewModel, dayForecastsViewModels)
         }
     }
+    
+    //MARK: Private
     
     private func cityForecastViewModel(cityForecast: CityForecast) -> CityForecastViewModel  {
         return CityForecastViewModel(cityAndCountry: cityForecast.cityName + ", " + cityForecast.countryName)

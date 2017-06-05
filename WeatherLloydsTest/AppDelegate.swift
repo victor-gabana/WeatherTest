@@ -13,9 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private func setupForecastViewController() {
+        let networkingManager = NetworkingManager(session: URLSession.shared)
+        
+        let forecastModelParser = ForecastModelParser()
+        
+        let weatherService = WeatherService(networkingManager: networkingManager, modelParser: forecastModelParser)
+        
+        let forecastInteractor = ForecastInteractor(weatherService: weatherService)
+        
+        let forecastPresenter = ForecastPresenter(interactor: forecastInteractor)
+        
+        let viewController = self.window?.rootViewController as! ForecastViewController
+        
+        viewController.presenter = forecastPresenter
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        self.setupForecastViewController()
+        
         return true
     }
 
