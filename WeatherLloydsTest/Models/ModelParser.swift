@@ -39,7 +39,7 @@ class ModelParser {
         let weather = weatherArray.first as! Dictionary<String, Any>
         let icon = weather["icon"] as! String
         
-        let dayForecast = DayForecast(id: "", main: "", description: "", temp: temp, maxTemp: maxTemp, minTemp: minTemp, humidity: humidity, date: date, icon: icon)
+        let dayForecast = DayForecast(temp: temp, maxTemp: maxTemp, minTemp: minTemp, humidity: humidity, date: date, icon: icon)
         
         return dayForecast
     }

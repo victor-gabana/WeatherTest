@@ -10,9 +10,9 @@ import Foundation
 import UIKit // TODO remove this once refactored
 
 public struct DayForecast {
-    let id: String
-    let main: String
-    let description: String
+//    let id: String
+//    let main: String
+//    let description: String
     let temp: Float
     let maxTemp: Float
     let minTemp: Float
