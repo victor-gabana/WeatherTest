@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304EC4DF1EE4D165007296DD /* Date+weekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EC4DE1EE4D165007296DD /* Date+weekDay.swift */; };
 		30D96EEA1EE47EED00AE5003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96EE91EE47EED00AE5003 /* AppDelegate.swift */; };
 		30D96EEC1EE47EED00AE5003 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96EEB1EE47EED00AE5003 /* ViewController.swift */; };
 		30D96EEF1EE47EED00AE5003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D96EED1EE47EED00AE5003 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 		30D96F1B1EE49DCE00AE5003 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96F1A1EE49DCE00AE5003 /* NetworkError.swift */; };
 		30D96F1E1EE49E1200AE5003 /* CityForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96F1D1EE49E1200AE5003 /* CityForecast.swift */; };
 		30D96F201EE49E2F00AE5003 /* DayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96F1F1EE49E2F00AE5003 /* DayForecast.swift */; };
+		30D96F251EE4BFA900AE5003 /* DayForecastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D96F241EE4BFA900AE5003 /* DayForecastView.xib */; };
+		30D96F271EE4C10000AE5003 /* DayForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96F261EE4C10000AE5003 /* DayForecastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		304EC4DE1EE4D165007296DD /* Date+weekDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+weekDay.swift"; sourceTree = "<group>"; };
 		30D96EE61EE47EED00AE5003 /* WeatherLloydsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherLloydsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30D96EE91EE47EED00AE5003 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30D96EEB1EE47EED00AE5003 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 		30D96F1A1EE49DCE00AE5003 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		30D96F1D1EE49E1200AE5003 /* CityForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityForecast.swift; sourceTree = "<group>"; };
 		30D96F1F1EE49E2F00AE5003 /* DayForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayForecast.swift; sourceTree = "<group>"; };
+		30D96F241EE4BFA900AE5003 /* DayForecastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayForecastView.xib; sourceTree = "<group>"; };
+		30D96F261EE4C10000AE5003 /* DayForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayForecastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		304EC4DD1EE4D13B007296DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				304EC4DE1EE4D165007296DD /* Date+weekDay.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		30D96EDD1EE47EED00AE5003 = {
 			isa = PBXGroup;
 			children = (
@@ -89,14 +103,16 @@
 		30D96EE81EE47EED00AE5003 /* WeatherLloydsTest */ = {
 			isa = PBXGroup;
 			children = (
+				304EC4DD1EE4D13B007296DD /* Extensions */,
+				30D96F231EE4BF7000AE5003 /* Views */,
 				30D96F1C1EE49DE500AE5003 /* Models */,
 				30D96F0F1EE49CB100AE5003 /* Networking */,
 				30D96EE91EE47EED00AE5003 /* AppDelegate.swift */,
 				30D96EEB1EE47EED00AE5003 /* ViewController.swift */,
 				30D96EED1EE47EED00AE5003 /* Main.storyboard */,
 				30D96EF01EE47EED00AE5003 /* Assets.xcassets */,
-				30D96EF21EE47EED00AE5003 /* LaunchScreen.storyboard */,
 				30D96EF51EE47EED00AE5003 /* Info.plist */,
+				30D96EF21EE47EED00AE5003 /* LaunchScreen.storyboard */,
 			);
 			path = WeatherLloydsTest;
 			sourceTree = "<group>";
@@ -128,6 +144,15 @@
 				30D96F1F1EE49E2F00AE5003 /* DayForecast.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		30D96F231EE4BF7000AE5003 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30D96F241EE4BFA900AE5003 /* DayForecastView.xib */,
+				30D96F261EE4C10000AE5003 /* DayForecastView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D96F251EE4BFA900AE5003 /* DayForecastView.xib in Resources */,
 				30D96EF41EE47EED00AE5003 /* LaunchScreen.storyboard in Resources */,
 				30D96EF11EE47EED00AE5003 /* Assets.xcassets in Resources */,
 				30D96EEF1EE47EED00AE5003 /* Main.storyboard in Resources */,
@@ -235,9 +261,11 @@
 			files = (
 				30D96F171EE49D7700AE5003 /* NetworkManager.swift in Sources */,
 				30D96F201EE49E2F00AE5003 /* DayForecast.swift in Sources */,
+				304EC4DF1EE4D165007296DD /* Date+weekDay.swift in Sources */,
 				30D96F191EE49DAE00AE5003 /* NetworkResponse.swift in Sources */,
 				30D96F1E1EE49E1200AE5003 /* CityForecast.swift in Sources */,
 				30D96EEC1EE47EED00AE5003 /* ViewController.swift in Sources */,
+				30D96F271EE4C10000AE5003 /* DayForecastView.swift in Sources */,
 				30D96F1B1EE49DCE00AE5003 /* NetworkError.swift in Sources */,
 				30D96F151EE49D6600AE5003 /* WeatherService.swift in Sources */,
 				30D96EEA1EE47EED00AE5003 /* AppDelegate.swift in Sources */,
@@ -448,6 +476,7 @@
 				30D96F051EE47EED00AE5003 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30D96F061EE47EED00AE5003 /* Build configuration list for PBXNativeTarget "WeatherLloydsTestTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +485,7 @@
 				30D96F081EE47EED00AE5003 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
