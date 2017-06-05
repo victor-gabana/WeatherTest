@@ -18,11 +18,5 @@ public struct DayForecast {
     let humidity: Int
     let date: Date
     let icon: String
-    
-    var weekDay: String? {
-        get {
-            return date.weekDay()
-        }
-    }
 }
 

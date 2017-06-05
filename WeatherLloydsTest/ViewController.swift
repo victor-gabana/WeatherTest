@@ -47,7 +47,7 @@ class ViewController: UIViewController {
                 self.populateNowForecastView(withViewModel: nowForecast)
             }
             
-            guard dayForecastViewModels.count == 5 else {
+            guard dayForecastViewModels.count >= 5 else {
                 return
             }
             self.loadDayForecastSubViews(dayForecastViewModels: [dayForecastViewModels[1], dayForecastViewModels[2], dayForecastViewModels[3], dayForecastViewModels[4]])
