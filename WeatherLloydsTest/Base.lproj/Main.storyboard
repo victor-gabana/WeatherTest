@@ -179,10 +179,13 @@
                     <connections>
                         <outlet property="cityAndCountryLabel" destination="lj4-aH-QYe" id="cEC-RU-cmv"/>
                         <outlet property="firstWeekDayContainerView" destination="PDD-KR-I7N" id="5D8-Hk-7Bx"/>
+                        <outlet property="fourthWeekDayContainerView" destination="XPr-aN-T68" id="oJ3-DH-bdF"/>
                         <outlet property="humidityLabel" destination="F3D-hc-pWV" id="rp8-Xt-sHk"/>
                         <outlet property="maxTempLabel" destination="ygb-qd-7Xc" id="IR5-2K-fWc"/>
                         <outlet property="minTempLabel" destination="tJQ-DW-nhb" id="mK4-pi-TSn"/>
+                        <outlet property="secondWeekDayContainerView" destination="Y2u-1h-2Tn" id="AJt-f7-0vA"/>
                         <outlet property="tempLabel" destination="tZ0-y7-9Ov" id="gwp-ym-HsA"/>
+                        <outlet property="thirdWeekDayContainerView" destination="4dP-qq-d54" id="EWt-cu-mrb"/>
                         <outlet property="weatherImage" destination="rSL-d2-s2I" id="ehm-4U-0yT"/>
                         <outlet property="weekDayLabel" destination="J5Y-6z-g9Y" id="mt4-PQ-M2D"/>
                     </connections>

@@ -12,11 +12,9 @@ class NetworkingManager {
     
     // TODO: Inject from outisde the following params
     let session = URLSession.shared
-    // parser
     
     public func requestJSON(url: URL, completion: ((NetworkResponse<Any>) -> Void)? = nil) {
-        
-        
+
         self.request(url: url) { (response) in
             switch response {
             case .error(let error):
@@ -72,5 +70,4 @@ class NetworkingManager {
         }
         task.resume()
     }
-    
 }

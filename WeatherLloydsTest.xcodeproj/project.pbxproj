@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		304EC4DF1EE4D165007296DD /* Date+weekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EC4DE1EE4D165007296DD /* Date+weekDay.swift */; };
+		304EC4E31EE5646B007296DD /* ModelParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304EC4E21EE5646B007296DD /* ModelParser.swift */; };
 		30D96EEA1EE47EED00AE5003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96EE91EE47EED00AE5003 /* AppDelegate.swift */; };
 		30D96EEC1EE47EED00AE5003 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D96EEB1EE47EED00AE5003 /* ViewController.swift */; };
 		30D96EEF1EE47EED00AE5003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D96EED1EE47EED00AE5003 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		304EC4DE1EE4D165007296DD /* Date+weekDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+weekDay.swift"; sourceTree = "<group>"; };
+		304EC4E21EE5646B007296DD /* ModelParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelParser.swift; sourceTree = "<group>"; };
 		30D96EE61EE47EED00AE5003 /* WeatherLloydsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherLloydsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30D96EE91EE47EED00AE5003 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30D96EEB1EE47EED00AE5003 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				30D96F1D1EE49E1200AE5003 /* CityForecast.swift */,
 				30D96F1F1EE49E2F00AE5003 /* DayForecast.swift */,
+				304EC4E21EE5646B007296DD /* ModelParser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				304EC4DF1EE4D165007296DD /* Date+weekDay.swift in Sources */,
 				30D96F191EE49DAE00AE5003 /* NetworkResponse.swift in Sources */,
 				30D96F1E1EE49E1200AE5003 /* CityForecast.swift in Sources */,
+				304EC4E31EE5646B007296DD /* ModelParser.swift in Sources */,
 				30D96EEC1EE47EED00AE5003 /* ViewController.swift in Sources */,
 				30D96F271EE4C10000AE5003 /* DayForecastView.swift in Sources */,
 				30D96F1B1EE49DCE00AE5003 /* NetworkError.swift in Sources */,

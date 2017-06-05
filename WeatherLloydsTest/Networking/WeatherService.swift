@@ -18,7 +18,7 @@ class WeatherService {
     // TODO: Inject from outisde the following params
     let networkinManager = NetworkingManager()
     
-    public func fetchForecast(forCityId cityId: String) {
+    public func fetchCityForecast(forCityId cityId: String, completion: ((CityForecast) -> Void)? = nil) {
         
         let parameters = ["id" : cityId, "APPID" : apiId]
         let urlString = self.formUrlString(path: urlPath, parameters: parameters)
@@ -27,10 +27,23 @@ class WeatherService {
             return
         }
         
-        self.networkinManager.requestJSON(url: url)
+        self.networkinManager.requestJSON(url: url) { (networkResponse) in
+            switch networkResponse {
+            case .success(let json):
+                let modelParser = ModelParser()
+                let cityForecast = modelParser.parseCityForecast(json: json as! Dictionary<String, Any>)
+                
+                DispatchQueue.main.async {
+                    completion?(cityForecast)
+                }
+                
+            case .error(let error):
+                print("error: ", error)
+            }
+        }
     }
     
-    func formUrlString(path:String, parameters:Dictionary<String, String>?) -> String {
+    private func formUrlString(path:String, parameters:Dictionary<String, String>?) -> String {
         
         var urlString = baseUrl + urlPath
         
