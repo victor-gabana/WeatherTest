@@ -14,8 +14,9 @@ public class DayForecastView: UIView {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
     
-    public func populateView(weekDayName: String?, weatherImage:UIImage?) {
-        self.name.text = weekDayName
-        self.weatherImage.image = weatherImage
+    // Ideally we would use all the properties of the model to populate the view. Due lack of time Im just using weekDay and Icon
+    public func populateView(withViewModel dayForecastViewModel: DayForecastViewModel) {
+        self.name.text = dayForecastViewModel.weekDay
+        self.weatherImage.image = dayForecastViewModel.icon
     }
 }

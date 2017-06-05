@@ -37,30 +37,43 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let weatherService = WeatherService()
-        weatherService.fetchCityForecast(forCityId: "2648110") { (cityForecast) in
-            self.cityAndCountryLabel.text = cityForecast.cityName + ", " + cityForecast.countryName
+
+        let forecastPresenter = ForecastPresenter()
+        forecastPresenter.fetchForecastViewModel { (cityForecastViewModel, dayForecastViewModels) in
+            self.populateCityView(withViewModel: cityForecastViewModel)
             
-            let nowForecast = cityForecast.weekForecast.first
+            let nowForecast = dayForecastViewModels.first
             if let nowForecast = nowForecast {
-                self.weekDayLabel.text = nowForecast.weekDay
-                self.tempLabel.text = nowForecast.tempString
-                self.maxTempLabel.text = nowForecast.maxTempString
-                self.minTempLabel.text = nowForecast.minTempString
-                self.weatherImage.image = nowForecast.weatherImage
-                self.humidityLabel.text = nowForecast.humidityString
+                self.populateNowForecastView(withViewModel: nowForecast)
             }
-        
-            self.loadDayForecastSubViews(daysForecast: [cityForecast.weekForecast[1], cityForecast.weekForecast[2], cityForecast.weekForecast[3], cityForecast.weekForecast[4]])
+            
+            guard dayForecastViewModels.count == 5 else {
+                return
+            }
+            self.loadDayForecastSubViews(dayForecastViewModels: [dayForecastViewModels[1], dayForecastViewModels[2], dayForecastViewModels[3], dayForecastViewModels[4]])
         }
     }
     
-    private func loadDayForecastSubViews(daysForecast: Array<DayForecast>) {
+    //MARK: Private
+    
+    private func populateCityView(withViewModel cityForecastViewModel: CityForecastViewModel) {
+        self.cityAndCountryLabel.text = cityForecastViewModel.cityAndCountry
+    }
+    
+    private func populateNowForecastView(withViewModel dayForecastViewModel: DayForecastViewModel) {
+        self.weekDayLabel.text = dayForecastViewModel.weekDay
+        self.tempLabel.text = dayForecastViewModel.temp
+        self.maxTempLabel.text = dayForecastViewModel.maxTemp
+        self.minTempLabel.text = dayForecastViewModel.minTemp
+        self.weatherImage.image = dayForecastViewModel.icon
+        self.humidityLabel.text = dayForecastViewModel.humidity
+    }
+    
+    
+    private func loadDayForecastSubViews(dayForecastViewModels: Array<DayForecastViewModel>) {
         
         let containerViews = [self.firstWeekDayContainerView, self.secondWeekDayContainerView, self.thirdWeekDayContainerView, self.fourthWeekDayContainerView]
         
-
         for (index, containerView) in containerViews.enumerated() {
         
             let weekDayView = UINib(nibName: "DayForecastView", bundle: nil).instantiate(withOwner: self, options: nil).first as! DayForecastView
@@ -74,7 +87,7 @@ class ViewController: UIViewController {
             constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[weekDayView]|", options: [], metrics: nil, views:views)
             NSLayoutConstraint.activate(constraints)
             
-            weekDayView.populateView(weekDayName: daysForecast[index].weekDay!, weatherImage:daysForecast[index].weatherImage)
+            weekDayView.populateView(withViewModel: dayForecastViewModels[index])
             
         }
         
