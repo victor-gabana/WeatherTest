@@ -18,9 +18,14 @@ class ModelParser {
         
         var weekForecast = Array<DayForecast>()
         let list = json["list"] as! Array<Any>
+        var dayDate = Date()
         for dayForecastDictionary in list {
             let dayForecast = self.parseDayForecast(json: dayForecastDictionary as! Dictionary<String, Any>)
-            weekForecast.append(dayForecast)
+            if dayForecast.weekDay == dayDate.weekDay() {
+                weekForecast.append(dayForecast)
+                // Moving into the next day of the week
+                dayDate = Calendar.current.date(byAdding: .day, value: 1, to: dayDate)!
+            }
         }
         let cityForecast = CityForecast(cityName: cityName, countryName: countryName, weekForecast: weekForecast)
     

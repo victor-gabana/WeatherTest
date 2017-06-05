@@ -52,7 +52,7 @@ class ViewController: UIViewController {
                 self.humidityLabel.text = nowForecast.humidityString
             }
         
-            self.loadDayForecastSubViews(daysForecast: [cityForecast.weekForecast[5], cityForecast.weekForecast[12], cityForecast.weekForecast[20], cityForecast.weekForecast[28]])
+            self.loadDayForecastSubViews(daysForecast: [cityForecast.weekForecast[1], cityForecast.weekForecast[2], cityForecast.weekForecast[3], cityForecast.weekForecast[4]])
         }
     }
     
