@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,26 +17,27 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2L-YR-vak" userLabel="name">
                     <rect key="frame" x="0.0" y="10" width="386" height="27.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="27.5" id="rRa-el-p7K"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xy0-qE-ajB" userLabel="weatherImage">
-                    <rect key="frame" x="10" y="47.5" width="366" height="366"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Xy0-qE-ajB" secondAttribute="height" multiplier="1:1" id="1pI-nH-thc"/>
-                    </constraints>
+                    <rect key="frame" x="10" y="47.5" width="366" height="357.5"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Y2L-YR-vak" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="G7a-Nh-I4H"/>
                 <constraint firstItem="Xy0-qE-ajB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" priority="750" id="MC2-cY-10C"/>
+                <constraint firstAttribute="bottom" secondItem="Xy0-qE-ajB" secondAttribute="bottom" constant="38" id="aN6-jT-LgA"/>
                 <constraint firstAttribute="trailing" secondItem="Y2L-YR-vak" secondAttribute="trailing" id="c7u-1g-Uie"/>
                 <constraint firstItem="Y2L-YR-vak" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="fvX-F2-gL3"/>
                 <constraint firstItem="Xy0-qE-ajB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="lDa-5M-ahs"/>
                 <constraint firstAttribute="trailing" secondItem="Xy0-qE-ajB" secondAttribute="trailing" constant="10" id="nFl-nI-81J"/>
-                <constraint firstItem="Xy0-qE-ajB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Y2L-YR-vak" secondAttribute="bottom" constant="10" id="r0T-KL-Wkb"/>
+                <constraint firstItem="Xy0-qE-ajB" firstAttribute="top" secondItem="Y2L-YR-vak" secondAttribute="bottom" constant="10" id="r0T-KL-Wkb"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -32,7 +32,9 @@ class ForecastModelParser: ForecastModelParserProtocol {
         return cityForecast
     }
     
-    func parseDayForecast(json: Dictionary<String, Any>) -> DayForecast {
+    //MARK: Private
+    
+    private func parseDayForecast(json: Dictionary<String, Any>) -> DayForecast {
         
         let main: Dictionary<String, Any> = json["main"]  as! Dictionary<String, Any>
         let temp = main["temp"] as! Float

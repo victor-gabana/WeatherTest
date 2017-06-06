@@ -24,7 +24,7 @@ class NetworkingManager: NetworkingManagerProtocol {
         self.session = session
     }
     
-    func requestJSON(url: URL, completion: ((NetworkResponse<Any>) -> Void)? = nil) {
+    func requestJSON(url: URL, completion: ((NetworkResponse<Any>) -> Void)?) {
 
         self.request(url: url) { (response) in
             switch response {
@@ -47,8 +47,9 @@ class NetworkingManager: NetworkingManagerProtocol {
         }
     }
     
+    //MARK: Private
     
-    private func request(url: URL, completion: ((NetworkResponse<(data: Data, urlResponse: HTTPURLResponse)>) -> Void)? = nil) {
+    private func request(url: URL, completion: ((NetworkResponse<(data: Data, urlResponse: HTTPURLResponse)>) -> Void)?) {
         
         let task = session.dataTask(with: url) { (data, urlResponse, error) in
             if let error = error {

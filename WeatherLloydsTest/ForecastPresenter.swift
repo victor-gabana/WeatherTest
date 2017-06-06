@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 public protocol ForecastPresenterProtocol {
+    var interactor: ForecastInteractorProtocol { get }
+    
     init(interactor: ForecastInteractorProtocol)
     func fetchForecastViewModel(completion: ((CityForecastViewModel, [DayForecastViewModel]) -> Void)?)
 }
@@ -23,7 +25,7 @@ class ForecastPresenter: ForecastPresenterProtocol {
         self.interactor = interactor
     }
     
-    func fetchForecastViewModel(completion: ((CityForecastViewModel, [DayForecastViewModel]) -> Void)? = nil) {
+    func fetchForecastViewModel(completion: ((CityForecastViewModel, [DayForecastViewModel]) -> Void)?) {
         
         self.interactor.fetchForecastModel { (cityForecast) in
             let cityForecastViewModel = self.cityForecastViewModel(cityForecast: cityForecast)

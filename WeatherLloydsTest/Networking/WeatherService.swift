@@ -56,6 +56,8 @@ class WeatherService: WeatherServiceProtocol {
         }
     }
     
+    //MARK: Private
+    
     private func formUrlString(path:String, parameters:Dictionary<String, String>?) -> String {
         
         var urlString = baseUrl + urlPath

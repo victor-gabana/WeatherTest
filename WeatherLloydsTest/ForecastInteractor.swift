@@ -10,6 +10,8 @@ import Foundation
 
 public protocol ForecastInteractorProtocol {
  
+    var weatherService: WeatherServiceProtocol { get }
+    
     init(weatherService: WeatherServiceProtocol)
     
     func fetchForecastModel(completion: ((CityForecast) -> Void)?)
@@ -24,7 +26,7 @@ class ForecastInteractor: ForecastInteractorProtocol  {
         self.weatherService = weatherService
     }
     
-    func fetchForecastModel(completion: ((CityForecast) -> Void)? = nil) {
+    func fetchForecastModel(completion: ((CityForecast) -> Void)?) {
         
         self.weatherService.fetchCityForecast(forCityId: cityId) { (cityForecast) in
             
@@ -35,6 +37,8 @@ class ForecastInteractor: ForecastInteractorProtocol  {
             completion?(newCityForecast)
         }
     }
+    
+    //MARK: Private
     
     private func oneForecastPerWeekDay(allForecasts: [DayForecast]) -> [DayForecast] {
     
